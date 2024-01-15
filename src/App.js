@@ -1,13 +1,13 @@
 
 import './App.css';
-import HotelList from './Components/HotelList';
+import HotelView from './Components/HotelView';
 import NavBar from './Components/NavBar';
 
 function App() {
   return (
     <div className="App">
-      <NavBar />
-      <HotelList />
+     <NavBar/>
+     <HotelView/>
     </div>
   );
 }
