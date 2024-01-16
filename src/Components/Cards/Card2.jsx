@@ -53,15 +53,15 @@ export default function ResponsiveDemo() {
 
     const productTemplate = (product) => {
         return (
-            <div className="border-0 surface-border border-round m-2 text-center">
-                <Card1></Card1>
-            </div>
+            
+                <Card1 className="me-2"></Card1>
+            
         );
     };
 
     return (
-        <div className="card  d-flex gap-2" style={{"margin":"0px",padding:"0px"}}>
-            <Carousel className='p-0' value={products} numScroll={2} numVisible={4} responsiveOptions={responsiveOptions} itemTemplate={productTemplate} />
+        <div className="card  m-3" style={{"margin":"0px",padding:"0px"}}>
+            <Carousel className='' value={products} numScroll={1} numVisible={4} responsiveOptions={responsiveOptions} itemTemplate={productTemplate} />
         </div>
     )
 }
