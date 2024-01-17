@@ -4,7 +4,10 @@ import { Button } from 'react-bootstrap';
 import Card1 from './Card1';
 
 const Card = () => {
- 
+ const handleClic=()=>{
+    
+ }
+
   return (
     <div className='cart-gen mt-4' >
       <div  className='d-flex gap-3 flex-row overflow-scroll' id='con'>

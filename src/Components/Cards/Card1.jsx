@@ -6,7 +6,7 @@ import WithoutCancelDemo from './WithoutCancelDemo';
 const Card1 = () => {
     return (
         
-        <Card style={{ width: '18rem' }}>
+        <Card style={{ width: '18rem' ,display:"block"}}>
             <Card.Img variant="top" src={logo} />
             <Card.Body >
                 <div className='text-uppercase p-1 ' style={{textAlign:"left",fontSize:"20px",color:"#93c572"}} ><b>type chambre</b> </div>

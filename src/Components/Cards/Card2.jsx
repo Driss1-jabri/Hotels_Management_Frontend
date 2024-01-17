@@ -26,26 +26,12 @@ export default function ResponsiveDemo() {
         },
         {
             breakpoint: '575px',
-            numVisible: 4,
-            numScroll: 1
+            numVisible: 1,
+            numScroll: 4
         }
     ];
 
-    const getSeverity = (product) => {
-        switch (product.inventoryStatus) {
-            case 'INSTOCK':
-                return 'success';
-
-            case 'LOWSTOCK':
-                return 'warning';
-
-            case 'OUTOFSTOCK':
-                return 'danger';
-
-            default:
-                return null;
-        }
-    };
+    
     
     useEffect(() => {
         setProducts([1,2,3,45,5,5,55,5,5,5,5,5,5,5,5,5,5,7])
@@ -60,7 +46,7 @@ export default function ResponsiveDemo() {
     };
 
     return (
-        <div className="card  m-3" style={{"margin":"0px",padding:"0px"}}>
+        <div className="card  m-3 d-block border-0" style={{"margin":"0px",padding:"0px"}}>
             <Carousel className='' value={products} numScroll={1} numVisible={4} responsiveOptions={responsiveOptions} itemTemplate={productTemplate} />
         </div>
     )
