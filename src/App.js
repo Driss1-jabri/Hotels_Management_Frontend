@@ -12,6 +12,7 @@ function App() {
   return (
     <div className="App">
       <NavBar />
+      
       <Router>
         <Routes>
           <Route exact path="/home" element={<Card2 />} />
