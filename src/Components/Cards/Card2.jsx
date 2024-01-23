@@ -12,6 +12,7 @@ export default function ResponsiveDemo() {
       try {
         const response = await axios.get("http://localhost:9090/hotels"); 
         const hotels = response.data;
+        console.log(hotels);
         setElements(hotels.map((hotel) => mapHotelToElement(hotel)));
       } catch (error) {
         console.error("Error fetching hotels:", error);
@@ -23,6 +24,7 @@ export default function ResponsiveDemo() {
 
   const mapHotelToElement = (hotel) => {
     return {
+      id : hotel.id,
       image: `data:image/jpeg;base64,${hotel.imageBytes}`, 
       nom: hotel.nom,
       adresse: hotel.adresse,
@@ -61,6 +63,7 @@ export default function ResponsiveDemo() {
         nom={element.nom}
         adresse={element.adresse}
         ville={element.ville}
+        id = {element.id}
       />
     );
   };
