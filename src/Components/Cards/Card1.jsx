@@ -3,7 +3,7 @@ import { Card } from "react-bootstrap";
 import { useNavigate } from "react-router-dom"; 
 import WithoutCancelDemo from "./WithoutCancelDemo";
 
-const Card1 = ({ image, nom, adresse, ville }) => {
+const Card1 = ({ image, nom, adresse, ville, id }) => {
   const navigate = useNavigate(); 
 
   const handleBookNowClick = () => {
@@ -11,7 +11,7 @@ const Card1 = ({ image, nom, adresse, ville }) => {
      navigate(
        `/hotel/${encodeURIComponent(nom)}/${encodeURIComponent(
          adresse
-       )}/${encodeURIComponent(ville)}`
+       )}/${encodeURIComponent(ville)}/${encodeURIComponent(id)}`
      );
   };
 

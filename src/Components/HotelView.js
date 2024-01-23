@@ -13,7 +13,7 @@ import { Modal } from 'react-bootstrap';
 import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import AmenitiesPopup from './AmenitiesPopup';
-import { useParams } from "react-router-dom";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 
 const RoomCard = ({ roomNumber, bedConfig }) => {
     
@@ -34,6 +34,7 @@ const RoomCard = ({ roomNumber, bedConfig }) => {
   };
 
 const HotelView = () => {
+  const navigate = useNavigate();
   const [showPopup, setShowPopup] = useState(false);
   const handleShowPopup = () => {
     setShowPopup(true);
@@ -42,7 +43,10 @@ const HotelView = () => {
   const handleClosePopup = () => {
     setShowPopup(false);
   };
-  const { nom, adresse, ville } = useParams();
+  const { nom, adresse, ville, id } = useParams();
+  const bookRoom =()=>{
+    navigate(`/room/${encodeURIComponent(id)}`)
+  }
   return (
     <div className="container mt-5">
       <div className="card-group border shadow-lg p-3 mb-5 bg-white rounded">
@@ -68,7 +72,9 @@ const HotelView = () => {
               {/*TOP*/}
 
               <div>
-                <h1 className="card-title">{nom}</h1>
+                <h1 className="card-title">
+                  {nom} {id}
+                </h1>
                 <p className="card-text">
                   Lorem ipsum dolor sit amet, consectetur adipiscing elit. Proin
                   eget tortor risus.
@@ -200,7 +206,12 @@ const HotelView = () => {
               {/*BUTTONS*/}
               <div className="d-flex justify-content-center gap-2">
                 <button className="btn btn-outline-danger">Go Back</button>
-                <button className="btn btn-outline-success">Book Now</button>
+                <button
+                  className="btn btn-outline-success"
+                  onClick={bookRoom}
+                >
+                  Book Now
+                </button>
               </div>
             </div>
           </div>

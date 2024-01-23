@@ -23,6 +23,7 @@ export default function ResponsiveDemo() {
 
   const mapHotelToElement = (hotel) => {
     return {
+      id : hotel.id,
       image: `data:image/jpeg;base64,${hotel.imageBytes}`, 
       nom: hotel.nom,
       adresse: hotel.adresse,
@@ -61,6 +62,7 @@ export default function ResponsiveDemo() {
         nom={element.nom}
         adresse={element.adresse}
         ville={element.ville}
+        id = {element.id}
       />
     );
   };
