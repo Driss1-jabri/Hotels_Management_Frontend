@@ -44,5 +44,4 @@ const Card1 = ({ image, nom, adresse, ville }) => {
     </Card>
   );
 };
-
 export default Card1;
