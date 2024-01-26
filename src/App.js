@@ -20,9 +20,9 @@ function App() {
       
 
       {/* <NavBar /> */}
-    
+        
       <Router>
-       
+      
         <Routes>
           <Route exact path="/home" element={<Slider1 />} />
           <Route

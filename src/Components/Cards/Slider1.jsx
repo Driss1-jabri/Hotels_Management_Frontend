@@ -89,14 +89,14 @@ const Slider1 = () => {
       {
         breakpoint: 1200,
         settings: {
-          slidesToShow: 4,
+          slidesToShow: 3,
           slidesToScroll: 1
         }
       },
       {
         breakpoint: 1300,
         settings: {
-          slidesToShow: 4,
+          slidesToShow: 3,
           slidesToScroll: 1
         }
       },
@@ -122,6 +122,7 @@ const Slider1 = () => {
             )
        }
        <Card1 className="cc"  ></Card1>
+       
       </Slider>
 
       <div className="text-center mt-3 ">
