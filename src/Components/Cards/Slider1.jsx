@@ -110,8 +110,8 @@ const Slider1 = () => {
   };
 
   return (
-    <div className=" m-5">
-      <Slider className="d-flex m-2" ref={sliderRef} {...settings}>
+    <div className="m-5 " style={{marginTop:"50px",backgroundColor:"white"}}>
+      <Slider className=" d-block ms-5 ps-5 me-5 pe-5" ref={sliderRef} {...settings}>
        {
         elements.map( ele=>
 
@@ -121,7 +121,7 @@ const Slider1 = () => {
             
             )
        }
-       <Card1 className="cc"  ></Card1>
+       <Card1 className="cc" ></Card1>
        
       </Slider>
 

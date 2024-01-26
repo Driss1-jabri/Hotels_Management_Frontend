@@ -16,7 +16,7 @@ const Card1 = ({ image, nom, adresse, ville }) => {
      );
   };
   return (
-    <Card style={{ width: "18rem",borderRadius:"10px",borderRadius:"30px 0 6px 6px" }}>
+    <Card style={{ width: "18rem",borderRadius:"30px 0 6px 6px",margin:"30px 0" }}>
       <Card.Img variant="top" src={logo} alt={`Image of ${nom}`} style={{borderRadius:"30px 0 30px 0"}}/>
       <Card.Body >
         <div

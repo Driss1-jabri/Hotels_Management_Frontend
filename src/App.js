@@ -14,7 +14,7 @@ import Slider1 from "./Components/Cards/Slider1";
 
 function App() {
   return (
-    <div className="App">
+    <div className="App" >
 
       
       
