@@ -19,7 +19,7 @@ function App() {
       
       
 
-      {/* <NavBar /> */}
+      <NavBar /> 
         
       <Router>
       

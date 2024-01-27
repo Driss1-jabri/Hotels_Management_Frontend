@@ -66,7 +66,7 @@ const Slider1 = () => {
     dots: false,
     infinite: false,
     speed: 500,
-    slidesToShow: 4,
+    slidesToShow: 3,
     slidesToScroll: 1,
     responsive: [
       {
@@ -111,7 +111,7 @@ const Slider1 = () => {
 
   return (
     <div className="m-5 " style={{marginTop:"50px",backgroundColor:"white"}}>
-      <Slider className="d-block ms-5 ps-5 me-5 pe-5" ref={sliderRef} {...settings}>
+      <Slider className="d-block " ref={sliderRef} {...settings}>
        {
         elements.map( ele=>
 
@@ -122,7 +122,7 @@ const Slider1 = () => {
             )
        }
        
-       
+       <Card1></Card1>
       </Slider>
 
       <div className="text-center mt-3 ">
