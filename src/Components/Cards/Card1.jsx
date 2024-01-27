@@ -1,23 +1,33 @@
 import React from "react";
 import { Card } from "react-bootstrap";
-import { useNavigate } from "react-router-dom"; 
+import { useNavigate } from "react-router-dom";
 import WithoutCancelDemo from "./WithoutCancelDemo";
+import logo from "../../Assets/Images/blog-2.png";
 
-const Card1 = ({ image, nom, adresse, ville, id }) => {
-  const navigate = useNavigate(); 
+const Card1 = ({ image, nom, adresse, ville }) => {
+  const navigate = useNavigate();
 
   const handleBookNowClick = () => {
-    
-     navigate(
-       `/hotel/${encodeURIComponent(nom)}/${encodeURIComponent(
-         adresse
-       )}/${encodeURIComponent(ville)}/${encodeURIComponent(id)}`
-     );
+    navigate(
+      `/hotel/${encodeURIComponent(nom)}/${encodeURIComponent(
+        adresse
+      )}/${encodeURIComponent(ville)}`
+    );
   };
-
   return (
-    <Card style={{ width: "18rem" }}>
-      <Card.Img variant="top" src={image} alt={`Image of ${nom}`} />
+    <Card
+      style={{
+        width: "18rem",
+        borderRadius: "30px 0 6px 6px",
+        margin: "30px 0",
+      }}
+    >
+      <Card.Img
+        variant="top"
+        src={logo}
+        alt={`Image of ${nom}`}
+        style={{ borderRadius: "30px 0 30px 0" }}
+      />
       <Card.Body>
         <div
           className="text-uppercase p-1"
@@ -44,5 +54,4 @@ const Card1 = ({ image, nom, adresse, ville, id }) => {
     </Card>
   );
 };
-
 export default Card1;
