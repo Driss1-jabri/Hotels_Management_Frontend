@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import "./css/bootstrap.min.css";
 import imag from '../Assets/Images/room-2.png'
-import { Navigate, useNavigate, useParams } from "react-router-dom";
+import { Navigate, useNavigate, useParams , useLocation } from "react-router-dom";
 import axios from "axios";
 import 'font-awesome/css/font-awesome.min.css';
 
@@ -14,6 +14,9 @@ const RoomItem = ({
   bathInfo,
   wifi,
   description,
+  hotelId,
+  roomId,
+  handleReserveClick,
 }) => (
   <div className="col-lg-4 col-md-6 wow fadeInUp" data-wow-delay="0.1s">
     <div className="room-item shadow rounded overflow-hidden">
@@ -52,7 +55,7 @@ const RoomItem = ({
           <a className="btn btn-sm btn-primary rounded py-2 px-4" href="">
             Voir Détails
           </a>
-          <a className="btn btn-sm btn-dark rounded py-2 px-4" href="">
+          <a className="btn btn-sm btn-dark rounded py-2 px-4" href="" onClick={() => handleReserveClick(hotelId, roomId)}>
             Reserver
           </a>
         </div>
@@ -64,15 +67,32 @@ const RoomItem = ({
 
 
 const Room = () => {
+
   const {id} = useParams();
+  const { search } = useLocation();
+  const navigate = useNavigate();
+  const queryParams = new URLSearchParams(search);
+  const selectedPeople = queryParams.get('personnes');
+
   const [rooms, setRooms] = useState([]);
+  const [filteredRooms, setFilteredRooms] = useState([]);
+
+  const handleReserveClick = (hotelId, roomId) => {
+    const selectedPeople = queryParams.get('personnes');
+    // Navigate to the Reservation component with hotelId and roomId
+    navigate(`/reservation/hotel/${hotelId}/room/${roomId}/personnes/${selectedPeople}`);
+    //navigate('/test')
+  };
+
+
   useEffect(() => {
     
     const fetchRooms = async () => {
       try {
         const response = await axios.get(
-          `http://localhost:9090/hotels/${id}/rooms`
+          `http://localhost:8080/hotels/${id}/rooms`
         );
+        console.log(response.data);
         setRooms(response.data);
       } catch (error) {
         console.error("Error fetching rooms:", error);
@@ -82,7 +102,14 @@ const Room = () => {
     
     fetchRooms();
   }, [id]);
-  
+
+  useEffect(() => {
+    // Filter rooms based on selectedPeople
+    const filtered = rooms.filter(room => room.capacite >= selectedPeople);
+    setFilteredRooms(filtered);
+  }, [rooms, selectedPeople]);
+
+
   return (
     <div className="container-xxxl bg-white p-0">
       <div className="container-xxl py-5">
@@ -97,7 +124,7 @@ const Room = () => {
             </h1>
           </div>
           <div className="row g-4">
-            {rooms.map((room) => (
+            {filteredRooms.map((room) => (
               <RoomItem
                 key={room.id}
                 imgSrc={`data:image/png;base64,${room.imageBase64}`}
@@ -108,6 +135,9 @@ const Room = () => {
                 bathInfo="2 Salles de bain"
                 wifi="Wifi"
                 description=""
+                hotelId={id}  // Pass hotelId as a prop
+                roomId={room.id}
+                handleReserveClick={handleReserveClick}
               />
             ))}
           </div>

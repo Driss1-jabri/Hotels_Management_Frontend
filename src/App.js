@@ -9,7 +9,8 @@ import Hotel from "./Components/Hotel"
 
 import NavBar from "./Components/NavBar";
 import Room from "./Components/Room";
-
+import Reservation from "./Components/Reservation";
+import TestComponent from "./Components/TestComponent";
 
 function App() {
   return (
@@ -19,11 +20,17 @@ function App() {
         <Routes>
           <Route exact path="/home" element={<Card2 />} />
           <Route
-            path="/hotel/:nom/:adresse/:ville/:id"
-            element={<HotelView />}
+            path="/hotel/:id"
+            element={
+                <HotelView />
+            }
           />
-          <Route path="/room/:id" element={<Room />} />
+          <Route path="/hotelroom/:id" element={<Room />} />
           <Route path="/hot" element={<Hotel />} />
+          <Route path="/test" element={<TestComponent />} />
+          <Route exact path="/reservation/hotel/:hotelId/room/:roomId/personnes/:personnes" element={
+            <Reservation />
+        } />
         </Routes>
       </Router>
     </div>

@@ -126,7 +126,7 @@ const AmenitiesPopup = ({ show, handleClose }) => {
 
       </Modal.Body>
       <Modal.Footer>
-        <Button variant="secondary" onClick={handleClose}>
+        <Button variant="btn btn-primary" onClick={handleClose}>
           Fermer
         </Button>
       </Modal.Footer>
