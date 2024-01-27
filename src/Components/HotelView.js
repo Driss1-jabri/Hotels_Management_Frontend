@@ -19,6 +19,7 @@ import { Navigate, useNavigate, useParams } from "react-router-dom";
 import DatePicker from 'react-datepicker';
 import 'react-datepicker/dist/react-datepicker.css';
 import axios from 'axios';
+import NavBar from './NavBar';
 
 const HotelView = () => {
 
@@ -49,7 +50,7 @@ const HotelView = () => {
     setShowPopup(false);
   };
   const handleReturn = () => {
-    navigate("/home");
+    navigate("/");
   };
   
   const generateImageURLs = (nomhotel, numImages = 10) => {
@@ -174,7 +175,8 @@ const HotelView = () => {
   
   return (
     <div className="d-flex flex-column justify-content-center align-items-center container mt-5">
-      <div className="card-group card-group-hotel-view border shadow-lg p-3 mb-5 bg-white rounded ">
+      <NavBar />
+      <div className="card-group card-group-hotel-view border shadow-lg p-3 mb-5 bg-white rounded " style={{ margin: '100px' }}>
         {/* Carousel Card */}
         <div className="card">
         <Carousel>

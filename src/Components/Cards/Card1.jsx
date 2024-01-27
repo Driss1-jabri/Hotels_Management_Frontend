@@ -2,16 +2,13 @@ import React from "react";
 import { Card } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
 import WithoutCancelDemo from "./WithoutCancelDemo";
-import logo from "../../Assets/Images/blog-2.png";
 
-const Card1 = ({ image, nom, adresse, ville }) => {
+const Card1 = ({ id, image ,nom, adresse, ville }) => {
   const navigate = useNavigate();
 
   const handleBookNowClick = () => {
     navigate(
-      `/hotel/${encodeURIComponent(nom)}/${encodeURIComponent(
-        adresse
-      )}/${encodeURIComponent(ville)}`
+      `/hotel/${encodeURIComponent(id)}`
     );
   };
   return (
@@ -24,7 +21,7 @@ const Card1 = ({ image, nom, adresse, ville }) => {
     >
       <Card.Img
         variant="top"
-        src={logo}
+        src={image}
         alt={`Image of ${nom}`}
         style={{ borderRadius: "30px 0 30px 0" }}
       />

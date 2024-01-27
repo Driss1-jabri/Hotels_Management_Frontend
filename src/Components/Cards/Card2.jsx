@@ -10,7 +10,7 @@ export default function Card2() {
     
     const fetchHotels = async () => {
       try {
-        const response = await axios.get("http://localhost:9090/hotels"); 
+        const response = await axios.get("http://localhost:8080/hotels"); 
         const hotels = response.data;
         setElements(hotels.map((hotel) => mapHotelToElement(hotel)));
       } catch (error) {
@@ -58,7 +58,7 @@ export default function Card2() {
     return (
       <Card1
         key={element.type}
-        image={element.image}
+        image={element.imageBase64}
         nom={element.nom}
         adresse={element.adresse}
         ville={element.ville}

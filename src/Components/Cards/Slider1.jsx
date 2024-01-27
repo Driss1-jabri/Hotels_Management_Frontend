@@ -22,7 +22,7 @@ const Slider1 = () => {
   useEffect(() => {
     const fetchHotels = async () => {
       try {
-        const response = await axios.get("http://localhost:9090/hotels");
+        const response = await axios.get("http://localhost:8080/hotels");
         const hotels = response.data;
         console.log(hotels);
         setElements(hotels.map((hotel) => mapHotelToElement(hotel)));
@@ -37,7 +37,7 @@ const Slider1 = () => {
   const mapHotelToElement = (hotel) => {
     return {
       id: hotel.id,
-      image: `data:image/jpeg;base64,${hotel.imageBytes}`,
+      image: `data:image/jpeg;base64,${hotel.imageBase64}`,
       nom: hotel.nom,
       adresse: hotel.adresse,
       ville: hotel.ville,
@@ -111,6 +111,7 @@ const Slider1 = () => {
       className="m-5 "
       style={{ marginTop: "50px", backgroundColor: "white" }}
     >
+      <h2 className='d-flex justify-content-center align-items-center pt-3'>NOS HOTELS</h2>
       <Slider
         className="d-block ms-5 ps-5 me-5 pe-5"
         ref={sliderRef}
