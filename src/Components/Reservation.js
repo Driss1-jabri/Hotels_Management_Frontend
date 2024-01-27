@@ -17,6 +17,7 @@ import Popup from 'reactjs-popup';
 import 'reactjs-popup/dist/index.css';
 import Loading from '../Assets/Images/loading.gif'
 import { FaDownload } from "react-icons/fa";
+import { PiKeyReturnFill } from "react-icons/pi";
 
 const Reservation = () => {
   const { hotelId, roomId , personnes } = useParams();
@@ -53,6 +54,9 @@ const Reservation = () => {
         <div className=''>
           <button className='d-flex gap-2 justify-content-center align-items-center btn btn-outline-primary' onClick={handleDownload}><FaDownload />Télécharger Votre Facture ici</button>
         </div>
+        <div className=''>
+          <button className='d-flex gap-2 justify-content-center align-items-center btn btn-outline-danger' onClick={handleReturn}><PiKeyReturnFill />Return</button>
+        </div>
       </>
     );
     setShowModal(true);
@@ -60,6 +64,9 @@ const Reservation = () => {
   const handleDownload = () => {
     console.log("Download Facture");
   };
+  const handleReturn = () => {
+    navigate("/");
+  }
 
   const handlePaymentButtonClick = () => {
     
