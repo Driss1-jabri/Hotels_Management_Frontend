@@ -10,8 +10,6 @@ import image2 from '../Assets/Images/gallery-2.png';
 import image3 from '../Assets/Images/gallery-3.png';
 import './HotelView.css';
 import { Modal } from 'react-bootstrap';
-import Popup from 'reactjs-popup';
-import 'reactjs-popup/dist/index.css';
 import AmenitiesPopup from './AmenitiesPopup';
 import { Navigate, useNavigate, useParams } from "react-router-dom";
 

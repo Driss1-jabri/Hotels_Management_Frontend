@@ -13,11 +13,10 @@ import { IoEnter } from "react-icons/io5";
 import { IoLogOutSharp } from "react-icons/io5";
 import moment from 'moment';
 import { Modal } from 'react-bootstrap';
-import Popup from 'reactjs-popup';
-import 'reactjs-popup/dist/index.css';
 import Loading from '../Assets/Images/loading.gif'
 import { FaDownload } from "react-icons/fa";
 import { PiKeyReturnFill } from "react-icons/pi";
+import { GrMail } from "react-icons/gr";
 
 const Reservation = () => {
   const { hotelId, roomId , personnes } = useParams();
@@ -51,8 +50,11 @@ const Reservation = () => {
           <FaCheck size={30} className="text-success mr-2" />
           {content}
         </div>
-        <div className=''>
-          <button className='d-flex gap-2 justify-content-center align-items-center btn btn-outline-primary' onClick={handleDownload}><FaDownload />Télécharger Votre Facture ici</button>
+        <div className='w-100'>
+          <button className='d-flex gap-2 justify-content-center align-items-center btn btn-outline-primary w-100' onClick={handleDownload}><FaDownload />Télécharger Votre Facture ici</button>
+        </div>
+        <div className='w-100'>
+          <button className='d-flex gap-2 justify-content-center align-items-center btn btn-outline-info w-100' onClick={handleDownloadEmail}><GrMail />Envoyer par Email</button>
         </div>
         <div className=''>
           <button className='d-flex gap-2 justify-content-center align-items-center btn btn-outline-danger' onClick={handleReturn}><PiKeyReturnFill />Return</button>
@@ -63,6 +65,9 @@ const Reservation = () => {
   };
   const handleDownload = () => {
     console.log("Download Facture");
+  };
+  const handleDownloadEmail = () => {
+    console.log("Envoie de la facture sur votre boite e-mail");
   };
   const handleReturn = () => {
     navigate("/");
@@ -234,8 +239,8 @@ const Reservation = () => {
         {/* Reservation Form Card */}
         <div className="card border-0">
           <div className="card-body d-flex flex-column justify-content-between">
-            <div className='align-items-start'>
-            <h3 className="mb-5 title">Informations de contact</h3>
+            <div className=''>
+            <h3 className="d-flex justify-content-center mb-5 title">Informations de contact</h3>
 
             <div className="mb-4 youare">
               <p>Je suis</p>
