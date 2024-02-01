@@ -3,7 +3,7 @@ import { Carousel } from "primereact/carousel";
 import Card1 from "./Card1";
 import axios from "axios";
 
-export default function ResponsiveDemo() {
+export default function Card2() {
   const [elements, setElements] = useState([]);
 
   useEffect(() => {

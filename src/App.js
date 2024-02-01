@@ -16,19 +16,14 @@ function App() {
   return (
     <div className="App" >
 
-      
-      
-
       <NavBar /> 
-        
       <Router>
-      
         <Routes>
           <Route exact path="/home" element={<Slider1 />} />
           <Route
             path="/hotel/:nom/:adresse/:ville/:id"
-            element={<HotelView />}
-          />
+            element={<HotelView />}/>
+
           <Route path="/room/:id" element={<Room />} />
           <Route path="/hot" element={<Hotel />} />
         </Routes>
@@ -36,5 +31,4 @@ function App() {
     </div>
   );
 }
-
 export default App;

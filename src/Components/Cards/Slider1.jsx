@@ -3,7 +3,7 @@ import Slider from "react-slick";
 import Card1 from "./Card1";
 import "bootstrap/dist/css/bootstrap.min.css"; // Assurez-vous d'importer le fichier CSS de Bootstrap
 import { MdNavigateNext } from "react-icons/md";
-import { GrFormPrevious} from "react-icons/gr";
+import { GrFormPrevious } from "react-icons/gr";
 import axios from "axios";
 
 const Slider1 = () => {
@@ -20,10 +20,9 @@ const Slider1 = () => {
   const [elements, setElements] = useState([]);
 
   useEffect(() => {
-    
     const fetchHotels = async () => {
       try {
-        const response = await axios.get("http://localhost:9090/hotels"); 
+        const response = await axios.get("http://localhost:9090/hotels");
         const hotels = response.data;
         console.log(hotels);
         setElements(hotels.map((hotel) => mapHotelToElement(hotel)));
@@ -37,15 +36,14 @@ const Slider1 = () => {
 
   const mapHotelToElement = (hotel) => {
     return {
-      id : hotel.id,
-      image: `data:image/jpeg;base64,${hotel.imageBytes}`, 
+      id: hotel.id,
+      image: `data:image/jpeg;base64,${hotel.imageBytes}`,
       nom: hotel.nom,
       adresse: hotel.adresse,
       ville: hotel.ville,
     };
   };
 
-  
   const productTemplate = (element) => {
     return (
       <Card1
@@ -54,19 +52,17 @@ const Slider1 = () => {
         nom={element.nom}
         adresse={element.adresse}
         ville={element.ville}
-        id = {element.id}
+        id={element.id}
       />
     );
   };
-
-
 
   //
   const settings = {
     dots: false,
     infinite: false,
     speed: 500,
-    slidesToShow: 3,
+    slidesToShow: 4,
     slidesToScroll: 1,
     responsive: [
       {
@@ -75,70 +71,68 @@ const Slider1 = () => {
           slidesToShow: 3,
           slidesToScroll: 1,
           infinite: true,
-          dots: true
-        }
+          dots: true,
+        },
       },
       {
         breakpoint: 900,
         settings: {
           slidesToShow: 2,
           slidesToScroll: 1,
-          initialSlide: 1
-        }
+          initialSlide: 1,
+        },
       },
       {
         breakpoint: 1200,
         settings: {
           slidesToShow: 3,
-          slidesToScroll: 1
-        }
+          slidesToScroll: 1,
+        },
       },
       {
         breakpoint: 1300,
         settings: {
           slidesToShow: 3,
-          slidesToScroll: 1
-        }
+          slidesToScroll: 1,
+        },
       },
       {
         breakpoint: 680,
         settings: {
           slidesToShow: 1,
-          slidesToScroll: 1
-        }}
-    ]
+          slidesToScroll: 1,
+        },
+      },
+    ],
   };
 
   return (
-    <div className="m-5 " style={{marginTop:"50px",backgroundColor:"white"}}>
-      <Slider className="d-block " ref={sliderRef} {...settings}>
-       {
-        elements.map( ele=>
-
-            
-              productTemplate(ele)
-            
-            
-            )
-       }
-       
-       <Card1></Card1>
+    <div
+      className="m-5 "
+      style={{ marginTop: "50px", backgroundColor: "white" }}
+    >
+      <Slider
+        className="d-block ms-5 ps-5 me-5 pe-5"
+        ref={sliderRef}
+        {...settings}
+      >
+        {elements.map((ele) => productTemplate(ele))}
       </Slider>
 
       <div className="text-center mt-3 ">
         <button
           className="btn  mr-2"
           onClick={previous}
-         // Couleur personnalisée pour le bouton "Previous"
+          // Couleur personnalisée pour le bouton "Previous"
         >
           <GrFormPrevious size={30} className="text-success" />
         </button>
         <button
           className="btn  "
           onClick={next}
-           // Couleur personnalisée pour le bouton "Next"
+          // Couleur personnalisée pour le bouton "Next"
         >
-          <MdNavigateNext size={30} className="text-danger"/>
+          <MdNavigateNext size={30} className="text-danger" />
         </button>
       </div>
     </div>
